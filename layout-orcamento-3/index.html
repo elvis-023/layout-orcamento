@@ -1,0 +1,133 @@
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-shape"></div>
+    <div class="brand">
+      <div class="brand-logo" role="img" aria-label="{{ empresa.razao_social }}"></div>
+      <div class="sub">{{ empresa.slogan | default: "Instrumentos de Precisão" }}</div>
+    </div>
+    <div class="doc-badge">
+      <span class="n">Nº {{ orcamento.numero }}</span>
+      <span class="l">Proposta Comercial</span>
+      <span class="d">Emitido em {{ orcamento.data_emissao }}</span>
+    </div>
+  </div>
+
+  <div class="meta-strip">
+    <div class="m emissor">
+      <span>Emissor</span>
+      <b>{{ empresa.razao_social }}</b>
+      <div class="ln">CNPJ {{ empresa.cnpj }}{% if empresa.ie %} · <span class="nowrap">IE {{ empresa.ie }}</span>{% endif %}</div>
+      <div class="ln">{{ empresa.endereco_completo }}</div>
+      <div class="ln">{{ empresa.telefone }} · {{ empresa.email }}</div>
+    </div>
+    <div class="m vendedor">
+      <span>Vendedor responsável</span>
+      <b>{{ vendedor.nome }}</b>
+      <div class="ln">{{ vendedor.email }}</div>
+      <div class="ln">{{ vendedor.telefone }}</div>
+    </div>
+    <div class="m"><span>Validade</span><b>{{ orcamento.validade_dias }} dias</b></div>
+    <div class="m"><span>Válido até</span><b>{{ orcamento.data_validade }}</b></div>
+  </div>
+
+  <div class="cards-row">
+    <div class="card cliente">
+      <div class="lbl">Cliente</div>
+      <div class="nm">{{ cliente.nome }}</div>
+      <div class="ln">{{ cliente.documento }}{% if cliente.ie %} · IE {{ cliente.ie }}{% endif %}</div>
+      {% if cliente.endereco %}<div class="ln">{{ cliente.endereco }}</div>{% endif %}
+      {% if cliente.cidade %}<div class="ln">{{ cliente.cidade }} / {{ cliente.uf }} · CEP {{ cliente.cep }}</div>{% endif %}
+      <div class="ln">Contato: {{ cliente.contato_nome }} · {{ cliente.contato_email }} · {{ cliente.contato_telefone }}</div>
+    </div>
+  </div>
+
+  <div class="sec-title"><span>Itens da proposta</span></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Produto</th><th class="c">NCM</th><th class="c">IPI</th><th class="c">Prazo</th>
+        <th class="c">Qtd</th><th class="r">Unit.</th><th class="r">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in itens %}
+      <tr>
+        <td>
+          <div class="prod-nome">{{ item.nome }}</div>
+          <div class="prod-cod">{{ item.codigo }}</div>
+          {% if item.certificado %}<span class="tag-cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6.5 9.2 17.3 4 12.1"/></svg>Certificado de Calibração Rastreável RBC/INMETRO</span>{% endif %}
+          {% if item.catalogo or item.manual or item.video %}
+          <div class="prod-links">
+            {% if item.catalogo %}<a href="{{ item.catalogo }}">Catálogo<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M10.5 13.5 20 4"/><path d="M18 14v4.5A1.5 1.5 0 0 1 16.5 20h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></svg></a>{% endif %}
+            {% if item.manual %}<a href="{{ item.manual }}">Manual<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M10.5 13.5 20 4"/><path d="M18 14v4.5A1.5 1.5 0 0 1 16.5 20h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></svg></a>{% endif %}
+            {% if item.video %}<a href="{{ item.video }}">Vídeo<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M10.5 13.5 20 4"/><path d="M18 14v4.5A1.5 1.5 0 0 1 16.5 20h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></svg></a>{% endif %}
+          </div>
+          {% endif %}
+        </td>
+        <td class="c">{{ item.ncm }}</td>
+        <td class="c">{{ item.ipi }}</td>
+        <td class="c">{{ item.prazo }}</td>
+        <td class="c">{{ item.quantidade }}</td>
+        <td class="r">{{ item.valor_unitario }}</td>
+        <td class="r">{{ item.total }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="sec-title"><span>Condições de pagamento</span></div>
+  <div class="fin-row">
+
+    <div class="pay-single">
+      <ul>
+        {% for cond in condicoes_gerais %}
+        <li><b>{{ cond.label }}</b>{% if cond.note %} <span class="obs">({{ cond.note }})</span>{% endif %}</li>
+        {% endfor %}
+        {% for cond in condicoes_boleto %}
+        <li><b>{{ cond.label }}</b>{% if cond.note %} <span class="obs">({{ cond.note }})</span>{% endif %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="totais">
+      <div class="row"><span>Subtotal dos produtos</span><span class="v">{{ orcamento.subtotal }}</span></div>
+      <div class="row ipi"><span>IPI</span><span class="v">{{ orcamento.ipi_total }}</span></div>
+      {% if orcamento.tem_desconto %}
+      <div class="row desc"><span>{{ orcamento.desconto_label }}</span><span class="v">{{ orcamento.desconto }}</span></div>
+      {% if orcamento.desconto_nota %}<div class="desc-nota">{{ orcamento.desconto_nota }}</div>{% endif %}
+      {% endif %}
+      <div class="row"><span>Frete</span><span class="v">{{ empresa.frete_texto | default: "Grátis" }}</span></div>
+      <div class="row total"><span>TOTAL</span><span class="v">{{ orcamento.total }}</span></div>
+    </div>
+
+  </div>
+
+  <div class="cond-grid">
+    <div class="cond">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 17V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h1"/><path d="M9 18h6"/><path d="M19 18h1a1 1 0 0 0 1-1v-3.3a1 1 0 0 0-.22-.62l-3.2-4a1 1 0 0 0-.78-.38H14"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
+      <div class="t">Frete Grátis</div><div class="d">para todo o pedido</div>
+    </div>
+    <div class="cond">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5c4.2-1.5 7-4 7-8.7V5.9a1 1 0 0 0-.7-.95C16.2 4.3 14 3.4 12.5 2.3a1 1 0 0 0-1 0C10 3.4 7.8 4.3 5.7 4.95A1 1 0 0 0 5 5.9v6.9c0 4.7 2.8 7.2 7 8.7z"/><path d="m9.2 12.2 2 2 3.6-3.9"/></svg></div>
+      <div class="t">Garantia</div><div class="d">{{ empresa.garantia_texto | default: "1 ano contra defeitos de fabricação" }}</div>
+    </div>
+    <div class="cond">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.6 6.2a1 1 0 0 0 0 1.4l1.8 1.8a1 1 0 0 0 1.4 0l3.9-3.9a6 6 0 0 1-7.9 7.9l-6.6 6.6a2.1 2.1 0 0 1-3-3l6.6-6.6a6 6 0 0 1 7.9-7.9z"/></svg></div>
+      <div class="t">Assistência Técnica</div><div class="d">{{ empresa.assistencia_texto | default: "A Metrotokyo presta assistência a todos os produtos fornecidos" }}</div>
+    </div>
+    {% if tem_certificado %}
+    <div class="cond cert">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a1.5 1.5 0 0 0-1.5 1.5v15A1.5 1.5 0 0 0 6 21h5"/><path d="M14 3l5 5"/><path d="M14 3v4.2a.8.8 0 0 0 .8.8H19"/><circle cx="17" cy="15" r="3.1"/><path d="m15.1 17.5-.6 4 2.5-1.4 2.5 1.4-.6-4"/></svg></div>
+      <div class="t">Certificado de Calibração</div><div class="d">{{ empresa.certificado_texto | default: "O certificado de calibração serve como um documento oficial que atesta a precisão e confiabilidade do instrumento" }}</div>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="nota-venda">Proposta sujeita a venda prévia e disponibilidade de estoque.</div>
+
+  <div class="footer">
+    <div class="stamp">{{ empresa.razao_social }}<br>Documento gerado em {{ orcamento.data_emissao }}</div>
+  </div>
+
+</div>

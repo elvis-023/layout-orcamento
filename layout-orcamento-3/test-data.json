@@ -1,0 +1,135 @@
+{
+  "tem_certificado": true,
+
+  "empresa": {
+    "razao_social": "Metrotokyo Instrumentos de Precisão LTDA",
+    "slogan": "Instrumentos de Precisão",
+    "cnpj": "12.345.678/0001-90",
+    "ie": "123.456.789.110",
+    "endereco_completo": "Rua Voluntários da Pátria, 1400 — Santana, São Paulo/SP — CEP 02011-000",
+    "telefone": "(11) 4002-8922",
+    "email": "vendas@metrotokyo.com.br",
+    "garantia_texto": "1 ano contra defeitos de fabricação",
+    "assistencia_texto": "A Metrotokyo presta assistência a todos os produtos fornecidos",
+    "certificado_texto": "O certificado de calibração serve como um documento oficial que atesta a precisão e confiabilidade do instrumento",
+    "frete_texto": "Grátis"
+  },
+
+  "orcamento": {
+    "numero": "2026-0417",
+    "data_emissao": "21/08/2026",
+    "validade_dias": 10,
+    "data_validade": "31/08/2026",
+    "subtotal": "R$ 32.650,00",
+    "ipi_total": "R$ 2.140,00",
+    "tem_desconto": true,
+    "desconto_label": "Desconto negociado (5%)",
+    "desconto": "- R$ 1.739,50",
+    "desconto_nota": "Condição válida apenas para esta proposta",
+    "total": "R$ 33.050,50"
+  },
+
+  "cliente": {
+    "nome": "Usinagem Kawakami Indústria e Comércio LTDA",
+    "documento": "98.765.432/0001-21",
+    "ie": "456.789.123.220",
+    "endereco": "Avenida das Indústrias, 2750 — Galpão 4, Distrito Industrial",
+    "cidade": "Joinville",
+    "uf": "SC",
+    "cep": "89219-500",
+    "contato_nome": "Renata Kawakami",
+    "contato_email": "renata.kawakami@usinagemkawakami.com.br",
+    "contato_telefone": "(47) 3422-1180"
+  },
+
+  "vendedor": {
+    "nome": "Eduardo Nakamura",
+    "email": "eduardo.nakamura@metrotokyo.com.br",
+    "telefone": "(11) 98877-1234"
+  },
+
+  "itens": [
+    {
+      "nome": "Paquímetro Digital 150mm — Resolução 0,01mm, Aço Inox Temperado",
+      "codigo": "MTK-PQ150D",
+      "ncm": "9017.30.10",
+      "ipi": "0%",
+      "prazo": "Pronta entrega",
+      "quantidade": 2,
+      "valor_unitario": "R$ 1.290,00",
+      "total": "R$ 2.580,00",
+      "certificado": true,
+      "catalogo": "https://metrotokyo.com.br/catalogos/mtk-pq150d.pdf",
+      "manual": "https://metrotokyo.com.br/manuais/mtk-pq150d.pdf",
+      "video": "https://youtu.be/exemplo-pq150d"
+    },
+    {
+      "nome": "Micrômetro Externo 0-25mm — Resolução 0,001mm, Batente de Metal Duro",
+      "codigo": "MTK-MC025E",
+      "ncm": "9017.30.10",
+      "ipi": "0%",
+      "prazo": "Pronta entrega",
+      "quantidade": 3,
+      "valor_unitario": "R$ 890,00",
+      "total": "R$ 2.670,00",
+      "certificado": true,
+      "catalogo": "https://metrotokyo.com.br/catalogos/mtk-mc025e.pdf",
+      "manual": "https://metrotokyo.com.br/manuais/mtk-mc025e.pdf",
+      "video": null
+    },
+    {
+      "nome": "Durômetro Portátil por Impacto Leeb — Escalas HL/HRC/HB/HV",
+      "codigo": "MTK-DR300L",
+      "ncm": "9024.10.90",
+      "ipi": "5%",
+      "prazo": "12 dias úteis",
+      "quantidade": 1,
+      "valor_unitario": "R$ 12.000,00",
+      "total": "R$ 12.000,00",
+      "certificado": true,
+      "catalogo": "https://metrotokyo.com.br/catalogos/mtk-dr300l.pdf",
+      "manual": null,
+      "video": "https://youtu.be/exemplo-dr300l"
+    },
+    {
+      "nome": "Rugosímetro Portátil Ra/Rz/Rq — Apalpador Indutivo, Memória 100 Leituras",
+      "codigo": "MTK-RG200P",
+      "ncm": "9031.80.99",
+      "ipi": "10%",
+      "prazo": "20 dias úteis",
+      "quantidade": 1,
+      "valor_unitario": "R$ 7.700,00",
+      "total": "R$ 7.700,00",
+      "certificado": true,
+      "catalogo": "https://metrotokyo.com.br/catalogos/mtk-rg200p.pdf",
+      "manual": "https://metrotokyo.com.br/manuais/mtk-rg200p.pdf",
+      "video": "https://youtu.be/exemplo-rg200p"
+    },
+    {
+      "nome": "Medidor de Espessura por Ultrassom — Faixa 1,2 a 225mm, Transdutor 5MHz",
+      "codigo": "MTK-UE410T",
+      "ncm": "9031.80.99",
+      "ipi": "10%",
+      "prazo": "15 dias úteis",
+      "quantidade": 2,
+      "valor_unitario": "R$ 3.850,00",
+      "total": "R$ 7.700,00",
+      "certificado": false,
+      "catalogo": null,
+      "manual": null,
+      "video": null
+    }
+  ],
+
+  "condicoes_gerais": [
+    { "label": "À vista — PIX ou transferência", "note": "3% de desconto sobre o total" },
+    { "label": "Cartão de crédito em até 6x sem juros", "note": "mediante aprovação da operadora" },
+    { "label": "Cartão de crédito em até 12x", "note": "com juros da operadora" }
+  ],
+
+  "condicoes_boleto": [
+    { "label": "28 dias corridos", "note": "sujeito a análise de crédito" },
+    { "label": "28/42 dias corridos", "note": "acima de R$ 5.000,00" },
+    { "label": "28/42/56 dias corridos", "note": "acima de R$ 15.000,00" }
+  ]
+}
