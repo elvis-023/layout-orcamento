@@ -15,14 +15,14 @@
 
   <div class="meta-strip">
     <div class="m emissor">
-      <span>Emissor</span>
+      <span>Fornecedor</span>
       <b>{{ empresa.razao_social }}</b>
       <div class="ln">CNPJ {{ empresa.cnpj }}{% if empresa.ie %} · <span class="nowrap">IE {{ empresa.ie }}</span>{% endif %}</div>
       <div class="ln">{{ empresa.endereco_completo }}</div>
       <div class="ln">{{ empresa.telefone }} · {{ empresa.email }}</div>
     </div>
     <div class="m vendedor">
-      <span>Vendedor responsável</span>
+      <span>Consultor de Vendas</span>
       <b>{{ vendedor.nome }}</b>
       <div class="ln">{{ vendedor.email }}</div>
       <div class="ln">{{ vendedor.telefone }}</div>
@@ -46,8 +46,8 @@
   <table>
     <thead>
       <tr>
-        <th>Produto</th><th class="c">NCM</th><th class="c">IPI</th><th class="c">Prazo</th>
-        <th class="c">Qtd</th><th class="r">Unit.</th><th class="r">Total</th>
+        <th>Produto</th><th class="c">NCM</th><th class="c">IPI</th><th class="c">Entrega</th>
+        <th class="c">Qtd</th><th class="r">Valor</th><th class="r">Total</th>
       </tr>
     </thead>
     <tbody>
