@@ -79,16 +79,14 @@
   <div class="sec-title"><span>Condições de pagamento</span></div>
   <div class="fin-row">
 
-    <div class="pay-single">
-      <ul>
-        {% for cond in condicoes_gerais %}
-        <li><b>{{ cond.label }}</b>{% if cond.note %} <span class="obs">({{ cond.note }})</span>{% endif %}</li>
-        {% endfor %}
-        {% for cond in condicoes_boleto %}
-        <li><b>{{ cond.label }}</b>{% if cond.note %} <span class="obs">({{ cond.note }})</span>{% endif %}</li>
-        {% endfor %}
-      </ul>
-    </div>
+  <div class="pay-single">
+  <ul>
+    {% for cond in condicoes_pagamento %}
+    <li><b>{{ cond.label }}</b>{% if cond.note %} <span class="obs">({{ cond.note }})</span>{% endif %}</li>
+    {% endfor %}
+  </ul>
+  </div>
+
 
     <div class="totais">
       <div class="row"><span>Subtotal dos produtos</span><span class="v">{{ orcamento.subtotal }}</span></div>
