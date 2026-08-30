@@ -11,7 +11,7 @@
     "email": "vendas@metrotokyo.com.br",
     "garantia_texto": "1 ano contra defeitos de fabricação",
     "assistencia_texto": "A Metrotokyo presta assistência a todos os produtos fornecidos",
-    "certificado_texto": "O certificado de calibração serve como um documento oficial que atesta a precisão e confiabilidade do instrumento",
+    "certificado_texto": "Documento oficial que atesta a precisão e confiabilidade do instrumento",
     "frete_texto": "Grátis"
   },
 
@@ -26,7 +26,8 @@
     "desconto_label": "Desconto negociado (5%)",
     "desconto": "- R$ 1.739,50",
     "desconto_nota": "Condição válida apenas para esta proposta",
-    "total": "R$ 33.050,50"
+    "total": "R$ 33.050,50",
+    "observacoes": "Instalação por conta do cliente.\nFrete calculado para entrega em São Paulo capital; regiões metropolitanas podem ter custo adicional."
   },
 
   "cliente": {
@@ -121,13 +122,10 @@
     }
   ],
 
-  "condicoes_gerais": [
+  "condicoes_pagamento": [
     { "label": "À vista — PIX ou transferência", "note": "3% de desconto sobre o total" },
     { "label": "Cartão de crédito em até 6x sem juros", "note": "mediante aprovação da operadora" },
-    { "label": "Cartão de crédito em até 12x", "note": "com juros da operadora" }
-  ],
-
-  "condicoes_boleto": [
+    { "label": "Cartão de crédito em até 12x", "note": "com juros da operadora" },
     { "label": "28 dias corridos", "note": "sujeito a análise de crédito" },
     { "label": "28/42 dias corridos", "note": "acima de R$ 5.000,00" },
     { "label": "28/42/56 dias corridos", "note": "acima de R$ 15.000,00" }

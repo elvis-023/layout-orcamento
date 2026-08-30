@@ -101,6 +101,13 @@
 
   </div>
 
+  {% if orcamento.observacoes %}
+  <div class="obs-box">
+    <div class="obs-lbl">Observações</div>
+    <div class="obs-txt">{{ orcamento.observacoes | truncate: 220 | newline_to_br }}</div>
+  </div>
+  {% endif %}
+
   <div class="cond-grid">
     <div class="cond">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 17V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h1"/><path d="M9 18h6"/><path d="M19 18h1a1 1 0 0 0 1-1v-3.3a1 1 0 0 0-.22-.62l-3.2-4a1 1 0 0 0-.78-.38H14"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
@@ -117,7 +124,7 @@
     {% if tem_certificado %}
     <div class="cond cert">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a1.5 1.5 0 0 0-1.5 1.5v15A1.5 1.5 0 0 0 6 21h5"/><path d="M14 3l5 5"/><path d="M14 3v4.2a.8.8 0 0 0 .8.8H19"/><circle cx="17" cy="15" r="3.1"/><path d="m15.1 17.5-.6 4 2.5-1.4 2.5 1.4-.6-4"/></svg></div>
-      <div class="t">Certificado de Calibração</div><div class="d">{{ empresa.certificado_texto | default: "O certificado de calibração serve como um documento oficial que atesta a precisão e confiabilidade do instrumento" }}</div>
+      <div class="t">Certificado de Calibração</div><div class="d">{{ empresa.certificado_texto | default: "Documento oficial que atesta a precisão e confiabilidade do instrumento" }}</div>
     </div>
     {% endif %}
   </div>
